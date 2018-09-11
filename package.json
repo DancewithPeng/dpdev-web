@@ -1,0 +1,38 @@
+{
+    "name": "webpack-react-dva-antd-template",
+    "version": "1.0.0",
+    "description": "webpack-dva-antd template for react",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "NODE_ENV=production webpack --config ./webpack.distribution.config.js --progress",
+        "start": "webpack-dev-server --open",
+        "buildDev": "webpack"
+    },
+    "author": "dancewithepng@gmail.com",
+    "license": "MIT",
+    "devDependencies": {
+        "autoprefixer": "^7.2.4",
+        "babel-core": "^6.26.0",
+        "babel-loader": "^7.1.2",
+        "babel-plugin-dva-hmr": "^0.4.1",
+        "babel-plugin-import": "^1.6.3",
+        "babel-preset-env": "^1.6.1",
+        "babel-preset-react": "^6.24.1",
+        "clean-webpack-plugin": "^0.1.17",
+        "css-loader": "^0.28.8",
+        "extract-text-webpack-plugin": "^3.0.2",
+        "html-webpack-plugin": "^2.30.1",
+        "postcss-loader": "^2.0.10",
+        "redbox-react": "1.x",
+        "style-loader": "^0.19.1",
+        "webpack": "^3.10.0",
+        "webpack-dev-server": "^2.10.0"
+    },
+    "dependencies": {
+        "antd": "^3.1.1",
+        "dva": "^2.1.0",
+        "react": "^16.2.0",
+        "react-dom": "^16.2.0"
+    }
+}

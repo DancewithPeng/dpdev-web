@@ -1,0 +1,20 @@
+
+.container {
+    align-content: center;
+}
+
+.title {
+    font-size: 60px;
+    text-align: center;
+    margin-top: 60px;
+    font-family: PingFangSC-Regular, sans-serif, 'Microsoft Yahei';
+}
+
+.card {
+    /* height: 310px; */
+    width: 500px;
+    margin: 60px auto;
+    box-shadow: darkgrey 0 0 30px;    
+    padding: 60px 60px 10px 60px;
+    align-content: center;
+}
