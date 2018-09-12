@@ -93,5 +93,15 @@ module.exports = {
         historyApiFallback: true,   // h5 history的新API，不让页面跳转
         inline: true,               // 实时刷新
         port: 8080,                 // 端口，默认8080
+
+        // 代理，转发请求
+        proxy: {
+            '/api': {
+                target: 'https://app.dpdev.cn',
+                secure: false,
+                changeOrigin: true,
+                pathRewrite: {'^/api': ''}
+            },
+        }
     },
 };

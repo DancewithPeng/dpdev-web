@@ -2,6 +2,7 @@
     "presets": ["env", "react"],
     "plugins": [
         "dva-hmr",
-        ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "true" }]
+        ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "true" }],
+        ["transform-runtime", { "helpers": false, "polyfill": false, "regenerator": true, "moduleName": "babel-runtime" }]
     ]
 }

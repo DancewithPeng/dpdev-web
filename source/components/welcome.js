@@ -4,8 +4,7 @@ import styles from './welcome.css';
 import './welcome.css'
 
 class Welcome extends React.Component {
-    render() {
-        console.log(this.children);
+    render() {        
         return (
             <div className={ styles.container }>
                 <h1 className= { styles.title }>欢迎来到天才社区</h1>
@@ -17,4 +16,4 @@ class Welcome extends React.Component {
     }
 }
 
-export { Welcome }
+export { Welcome };

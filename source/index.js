@@ -5,18 +5,8 @@ import 'antd/dist/antd.css';
 import { Spin } from 'antd';
 import styles from './index.css';
 import { Hello, Welcome } from './components/welcome'
-import { Signin } from './components/signin'
-import { Signup } from './components/signup'
-
-// class Hello extends React.Component {
-//     render() {
-//         return (
-//             <div className={ styles.container }>
-//                 <Spin style={ {color: 'darkslategray'} } tip='Hello World!' size="large" />
-//             </div>
-//         );        
-//     }
-// }
+import Signin from './components/signin'
+import Signup from './components/signup'
 
 // 1. Initialize
 const app = dva();
@@ -25,7 +15,7 @@ const app = dva();
 // app.use({});
 
 // 3. Model
-// app.model(require('./models/example').default);
+app.model(require('./models/auth').default);
 
 // 4. Router
 app.router(({ history }) => (

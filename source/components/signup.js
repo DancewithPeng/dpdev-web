@@ -2,20 +2,27 @@ import React from 'react'
 import { Welcome } from './welcome'
 import 'antd/dist/antd.css';
 import styles from './signup.css';
+import { connect } from 'dva';
 
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 const FormItem = Form.Item;
 
 class Signup extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.handleLinkClick = this.handleLinkClick.bind(this);
+    }
+
     // 处理提交
     handleSubmit(e) {
-        console.log(e);
+        
     }
 
     // 处理注册链接
     handleLinkClick(e) {
-        console.log(e)
+        e.preventDefault();
+        this.props.dispatch({ type: 'auth/navigate_signin' });        
     }
 
     render() {
@@ -47,4 +54,10 @@ class Signup extends React.Component {
     }
 }
 
-export { Signup }
+function mapStateToProps(state) {
+    return {
+        count: state
+    };
+}
+
+export default connect(mapStateToProps)(Signup);
