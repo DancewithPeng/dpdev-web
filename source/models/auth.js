@@ -3,6 +3,7 @@ import { trim } from '../utilities/dp_string';
 import sha256 from 'crypto-js/sha256';
 import axios from 'axios';
 import Store from '../index';
+import * as Services from '../services/users';
 
 // 通用请求头
 axios.defaults.baseURL = 'https://app.dpdev.cn';
@@ -32,22 +33,17 @@ export default {
         },
 
         // 登陆
-        *signin(action, { call, put }) {
-
-            // 登陆请求
-            axios.post('/auth/password/', {
-                username: trim(action.payload.username),
-                password: sha256(trim(action.payload.password)).toString(),
-            })
-            .then(function(response) {
-                Store.dispatch(routerRedux.replace('/signinsuccess'));
-            })
-            .catch(function(error) {
-                console.log(error);
-            })
-            .then(function() {
-                console.log('Finished');
-            });
+        *signin({type, payload}, { call, put }) {
+            const username = trim(payload.username);
+            const password = sha256(trim(payload.password)).toString()
+            console.log(username, password);
+            const { status, data, message } = yield call(Services.fetch, username, password);
+            if (status == 0) {
+                console.log(data);
+                yield put(routerRedux.replace('/signinsuccess'));
+            } else {
+                console.log(message);
+            }
         },
 
         // 注册
