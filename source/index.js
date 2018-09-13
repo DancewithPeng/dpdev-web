@@ -2,11 +2,9 @@ import React from 'react';
 import dva from 'dva';
 import { Router, Route, Switch } from 'dva/router';
 import 'antd/dist/antd.css';
-import { Spin } from 'antd';
-import styles from './index.css';
-import { Hello, Welcome } from './components/welcome'
-import Signin from './components/signin'
-import Signup from './components/signup'
+import { SigninPage } from './routes/signin_page';
+import { SignupPage } from './routes/signup_page';
+import { SigninSuccessPage } from './routes/signin_success_page';
 
 // 1. Initialize
 const app = dva();
@@ -21,11 +19,14 @@ app.model(require('./models/auth').default);
 app.router(({ history }) => (
     <Router history={ history }>
         <Switch>
-           <Route path="/" exact component={ Signin } />
-           <Route path="/signup" exact component={ Signup } />
+           <Route path="/" exact component={ SigninPage } />
+           <Route path="/signup" exact component={ SignupPage } />
+           <Route path="/signinsuccess" exact component={ SigninSuccessPage } />
         </Switch>
     </Router>
 ));
   
 // 5. Start
 app.start('#root');
+
+export default app._store;

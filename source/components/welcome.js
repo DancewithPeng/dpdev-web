@@ -3,6 +3,7 @@ import 'antd/dist/antd.css';
 import styles from './welcome.css';
 import './welcome.css'
 
+/* 欢迎界面 */
 class Welcome extends React.Component {
     render() {        
         return (

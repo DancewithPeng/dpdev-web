@@ -1,13 +1,12 @@
 import React from 'react'
 import { Welcome } from './welcome'
 import 'antd/dist/antd.css';
-import styles from './signin.css';
-import { connect } from 'dva';
+import styles from './signin_form.css';
 
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Icon, Input, Button } from 'antd';
 const FormItem = Form.Item;
 
-class Signin extends React.Component {
+class SigninForm extends React.Component {
 
     constructor(props) {
         super(props);
@@ -76,13 +75,4 @@ class Signin extends React.Component {
 }
 
 // atnd的Form表单需要这样创建
-const SigninForm = Form.create()(Signin);
-
-function mapStateToProps(state) {
-    return {
-        count: state
-    };
-}
-
-export default connect(mapStateToProps)(SigninForm);
-// export { Signin };
+export default Form.create()(SigninForm);

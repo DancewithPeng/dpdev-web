@@ -1,13 +1,12 @@
 import React from 'react'
 import { Welcome } from './welcome'
 import 'antd/dist/antd.css';
-import styles from './signup.css';
-import { connect } from 'dva';
+import styles from './signup_form.css';
 
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import { Form, Icon, Input, Button } from 'antd';
 const FormItem = Form.Item;
 
-class Signup extends React.Component {
+class SignupForm extends React.Component {
 
     constructor(props) {
         super(props);
@@ -54,10 +53,4 @@ class Signup extends React.Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        count: state
-    };
-}
-
-export default connect(mapStateToProps)(Signup);
+export default Form.create()(SignupForm);

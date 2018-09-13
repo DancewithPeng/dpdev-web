@@ -2,6 +2,7 @@ import { routerRedux } from 'dva/router';
 import { trim } from '../utilities/dp_string';
 import sha256 from 'crypto-js/sha256';
 import axios from 'axios';
+import Store from '../index';
 
 // 通用请求头
 axios.defaults.baseURL = 'https://app.dpdev.cn';
@@ -14,7 +15,7 @@ export default {
     state: 0,
     reducers: {
         add(state, action) {
-            return state;         
+            return state;      
         },
     },
 
@@ -32,15 +33,14 @@ export default {
 
         // 登陆
         *signin(action, { call, put }) {
-            console.log(trim(action.payload.username));
-            console.log(trim(action.payload.password));
 
+            // 登陆请求
             axios.post('/auth/password/', {
                 username: trim(action.payload.username),
                 password: sha256(trim(action.payload.password)).toString(),
             })
             .then(function(response) {
-                console.log(response.status + response.data);
+                Store.dispatch(routerRedux.replace('/signinsuccess'));
             })
             .catch(function(error) {
                 console.log(error);
